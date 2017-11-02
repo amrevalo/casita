@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>jdbcConnection</servlet-name>
+        <servlet-class>net.daw.control.JdbcConnection</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>json</servlet-name>
+        <servlet-class>net.daw.control.json</servlet-class>
+    </servlet>
+   <servlet>
+        <servlet-name>log4jinit</servlet-name>
+        <servlet-class>eu.rafaelaznar.control.Log4jInit</servlet-class>
+        <init-param>
+            <param-name>log4j-carrito-server</param-name>
+            <param-value>WEB-INF/log4j.properties</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jdbcConnection</servlet-name>
+        <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>json</servlet-name>
+        <url-pattern>/json</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>json</welcome-file>
+    </welcome-file-list>
+</web-app>
